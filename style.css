@@ -1,0 +1,178 @@
+:root {
+	--primary-clr: black;
+	--secondary-clr: white;
+	--title-font: "Oswald", sans-serif;
+	--general-font: "Mont";
+}
+
+html {
+	box-sizing: border-box;
+	font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+.body {
+	margin: 0;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr 10fr 1fr;
+	grid-template-areas:
+		"header	header	header"
+		".	body	."
+		"footer	footer	footer";
+	min-height: 100%;
+}
+
+.header {
+	grid-area: header;
+	background-color: var(--primary-clr);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-toggle {
+	cursor: pointer;
+	border: 0;
+	width: 3em;
+	height: 3em;
+	padding: 0em;
+	border-radius: 50%;
+	background: yellowgreen;
+	color: white;
+	transition: opacity 250ms ease;
+	opacity: 1;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+	opacity: 0.75;
+}
+
+.hamburger {
+	position: relative;
+	width: 50%;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+	display: block;
+	margin: 0 auto;
+	height: 3px;
+	background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+	content: "";
+	width: 100%;
+}
+
+.hamburger::before {
+	transform: translateY(-6px);
+}
+
+.hamburger::after {
+	transform: translateY(3px);
+}
+
+.nav {
+	visibility: hidden;
+	height: 0;
+	position: absolute;
+	flex: 1 1 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	transition: height 0.3s ease-out;
+}
+
+.nav--visible {
+	visibility: visible;
+	height: 240px;
+	position: relative;
+	display: block;
+}
+
+.nav__logo {
+	height: auto;
+}
+
+.nav__list {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+.nav__link {
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: var(--secondary-clr);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+	opacity: 0.7;
+}
+
+.nav__link::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background: var(--secondary-clr);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.5s ease;
+}
+
+.nav__item:hover .nav__link::after {
+	transform: scaleX(1);
+}
+
+.main {
+	grid-area: body;
+}
+
+.footer {
+	grid-area: footer;
+	background-color: var(--primary-clr);
+	color: var(--secondary-clr);
+}
+
+@media (min-width: 600px) {
+	.nav-toggle {
+		display: none;
+	}
+
+	.nav {
+		visibility: visible;
+		align-items: center;
+		height: auto;
+		position: inherit;
+	}
+
+	.nav__list {
+		flex-direction: row;
+	}
+}
