@@ -158,9 +158,12 @@ body {
 	grid-area: footer;
 	background-color: var(--primary-clr);
 	color: var(--secondary-clr);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 40em) {
 	.nav-toggle {
 		display: none;
 	}
