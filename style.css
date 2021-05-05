@@ -174,6 +174,41 @@ body {
 	opacity: 0.7;
 }
 
+.education {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.education__title {
+	flex-basis: 100%;
+	flex-grow: 9999;
+	text-transform: uppercase;
+}
+
+.education__item {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	border: solid black 1px;
+	border-radius: 1em;
+	padding: 1em;
+}
+
+.ucla {
+	background-image: url(img/uclalogo.png);
+	background-size: cover;
+}
+
+.cmu {
+	background-image: url(img/cmulogo.png);
+	background-size: cover;
+}
+
+.osu {
+	background-image: url(img/osulogo.jpg);
+	background-size: cover;
+}
+
 @media (min-width: 40em) {
 	.nav-toggle {
 		display: none;
